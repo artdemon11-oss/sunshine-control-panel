@@ -1479,6 +1479,8 @@ export const zh = {
       ds4ModeHint: '适合需要 PlayStation 按键布局、触控板或体感的游戏。',
       ds5Variant: 'DualSense（DS5 / PS5 手柄）',
       ds5ModeHint: '模拟 PlayStation 5 手柄，支持触控板、体感与自适应扳机；选择后请按下方提示安装所需组件。',
+      switchProVariant: 'Nintendo Switch Pro 手柄',
+      switchProModeHint: '通过与 DualSense 相同的组件模拟 Switch Pro 手柄，支持体感与振动；需要支持 Switch Pro 的组件版本。同一时间只能存在一个 DualSense 或 Switch Pro。',
       sunshineUnreachable: '无法读取 Sunshine 配置，请确认 Sunshine 正在运行。',
       retry: '重试',
       saveFailed: '保存失败，已恢复原设置。',

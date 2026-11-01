@@ -70,7 +70,7 @@ pub async fn test_virtual_microphone() -> Result<MicrophoneTestResult, String> {
     read_device_api_response(response, "virtual microphone test").await
 }
 
-const GAMEPAD_MODES: [&str; 4] = ["auto", "x360", "ds4", "ds5"];
+const GAMEPAD_MODES: [&str; 5] = ["auto", "x360", "ds4", "ds5", "switch"];
 
 /// 对齐 Sunshine 核心 to_bool 的接受列表（大小写不敏感）
 fn parse_bool(value: &str) -> Option<bool> {
@@ -141,7 +141,7 @@ pub async fn save_controller_hub_config(
     if let Some(mode) = gamepad.as_deref()
         && !GAMEPAD_MODES.contains(&mode)
     {
-        return Err(format!("无效的仿真模式: {mode}（可选: auto/x360/ds4/ds5）"));
+        return Err(format!("无效的仿真模式: {mode}（可选: auto/x360/ds4/ds5/switch）"));
     }
     if let Some(port) = dsu_server_port
         && !(1024..=65535).contains(&port)

@@ -112,6 +112,7 @@ const modeOptions = computed(() => {
     { value: 'x360', label: e.xbox360, hint: e.xbox360Hint },
     { value: 'ds4', label: 'DualShock 4', hint: e.ds4ModeHint },
     { value: 'ds5', label: e.ds5Variant, hint: e.ds5ModeHint },
+    { value: 'switch', label: e.switchProVariant, hint: e.switchProModeHint },
   ]
 })
 
@@ -128,11 +129,14 @@ const appModeOptions = computed(() => {
     { value: 'x360', label: e.xbox360 },
     { value: 'ds4', label: 'DualShock 4' },
     { value: 'ds5', label: e.ds5Variant },
+    { value: 'switch', label: e.switchProVariant },
   ]
 })
 
+// Switch Pro uses the same HIDMaestro component, so it needs the same install prompt.
+const COMPONENT_GAMEPADS = new Set(['ds5', 'switch'])
 const hasDs5Selection = computed(() =>
-  (config.value?.gamepad === 'ds5') || apps.value.some((app) => app.gamepad === 'ds5'))
+  COMPONENT_GAMEPADS.has(config.value?.gamepad) || apps.value.some((app) => COMPONENT_GAMEPADS.has(app.gamepad)))
 
 watch(hasDs5Selection, (selected) => emit('ds5-selection-change', selected), { immediate: true })
 
